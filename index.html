@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        #controlPanel {
+            float: left;
+            padding-top: 30px;
+        }
+
+        .button {
+            background-color: gray;
+            color: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            margin: 90px 40px;
+            cursor: pointer;
+        }
+
+        #traffic-light {
+            height: 550px;
+            width: 200px;
+            float: left;
+            background-color: #333;
+            border-radius: 40px;
+            margin: 30px 0;
+            padding: 20px;
+        }
+
+        .bulb {
+            height: 150px;
+            width: 150px;
+            background-color: #111;
+            border-radius: 50%;
+            margin: 25px auto;
+            transition: background 500ms;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="controlPanel">
+        <h1 id="stopButton" class="button" onclick="changeLight('stop')">Stop</h1>
+        <h1 id="slowButton" class="button" onclick="changeLight('slow')">Slow</h1>
+        <h1 id="goButton" class="button" onclick="changeLight('go')">Go</h1>
+    </div>
+    <div id="traffic-light">
+        <div id="stopLight" class="bulb"></div>
+        <div id="slowLight" class="bulb"></div>
+        <div id="goLight" class="bulb"></div>
+    </div>
+
+    <script>
+        let stopLight = document.getElementById('stopLight');
+        let slowLight = document.getElementById('slowLight');
+        let goLight = document.getElementById('goLight');
+        let stopButton = document.getElementById('stopButton');
+        let slowButton = document.getElementById('slowButton');
+        let goButton = document.getElementById('goButton');
+    
+        function changeLight(lightType) {
+            if (lightType === "stop") {
+                stopLight.style.background = "red";
+                slowLight.style.background = "black"
+                goLight.style.background = "black";    
+            } else if (lightType === "slow") {
+                slowLight.style.background = "yellow"
+                stopLight.style.background = "black"
+                goLight.style.background = "black";
+            } else if (lightType === "go") {
+            goLight.style.background = "green";
+            slowLight.style.background = "black"
+            stopLight.style.background = "black"
+            }
+
+        }
+    </script>
+</body>
+
+</html>
